@@ -1,0 +1,24 @@
+plugins {
+    // Apply the scala Plugin to add support for Scala.
+    id 'scala'
+    id 'idea'
+    id 'application'
+}
+
+repositories {
+    // Maven local should contains: libraries, and books
+    mavenLocal()
+    // Use Maven Central for resolving dependencies (e.g scala-library)
+    mavenCentral()
+}
+
+dependencies {
+    // Use Scala 2.13 in our library project
+    implementation 'org.scala-lang:scala-library:2.13.8'
+    implementation 'com.tfedorov.gradledependencies:softwarelibrary:0.1'
+    implementation 'com.tfedorov.gradledependencies:sciencelibrary:0.1'
+
+}
+application {
+    mainClass = 'com.tfedorov.gradledependencies.client.ClientApp'
+}

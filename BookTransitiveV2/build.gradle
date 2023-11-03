@@ -1,0 +1,31 @@
+repositories {
+    // Maven local should contains: libraries, and books
+    mavenLocal()
+    // Use Maven Central for resolving dependencies (e.g scala-library)
+    mavenCentral()
+}
+
+plugins {
+    id 'maven-publish'
+    // Apply the scala Plugin to add support for Scala.
+    id 'scala'
+    id 'idea'
+}
+
+dependencies {
+    // Use Scala 2.18 in our library project
+    compileOnly 'org.scala-lang:scala-library:2.13.8'
+
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.tfedorov.gradledependencies'
+            artifactId = 'booktransitive'
+            version = '0.2'
+
+            from components.java
+        }
+    }
+}
