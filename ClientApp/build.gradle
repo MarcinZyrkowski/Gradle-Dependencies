@@ -19,20 +19,27 @@ dependencies {
     implementation 'com.tfedorov.gradledependencies:sciencelibrary:0.1'
 
 
+// 2) Declaring rich versions
+//    implementation("com.tfedorov.gradledependencies:booktransitive") {
+//        version {
+//            strictly("0.1")
+//        }
+//    }
+
 }
 
 // when our project depends directly or indirectly on libraries with different versions
 // Gradle resolves this by selecting the highest version
 // therefore we see Book from com.tfedorov.gradledependencies:booktransitive:0.2
 
-// we can resolve it by following ways:
 
-// 1) resolution strategy
-configurations.all {
-    resolutionStrategy {
-        force 'com.tfedorov.gradledependencies:booktransitive:0.1'
-    }
-}
+// 4) resolution strategy
+//configurations.all {
+//    resolutionStrategy {
+//        force 'com.tfedorov.gradledependencies:booktransitive:0.1'
+//    }
+//}
+
 
 application {
     mainClass = 'com.tfedorov.gradledependencies.client.ClientApp'
