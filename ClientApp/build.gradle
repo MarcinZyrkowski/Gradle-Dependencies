@@ -23,6 +23,8 @@ dependencies {
     implementation 'com.tfedorov.gradledependencies:sciencelibrary:0.1'
 
 
+// 1.1) Declaring simple version declaration
+//    implementation 'com.tfedorov.gradledependencies:booktransitive:0.1!!'
 
 // 1.2) Declaring rich versions
 //    implementation("com.tfedorov.gradledependencies:booktransitive") {
