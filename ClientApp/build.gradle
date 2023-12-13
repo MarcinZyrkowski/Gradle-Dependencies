@@ -12,6 +12,10 @@ repositories {
     mavenCentral()
 }
 
+// when our project depends directly or indirectly on libraries with different versions
+// Gradle resolves this by selecting the highest version
+// therefore we see Book from com.tfedorov.gradledependencies:booktransitive:0.2
+
 dependencies {
     // Use Scala 2.13 in our library project
     implementation 'org.scala-lang:scala-library:2.13.8'
@@ -19,27 +23,32 @@ dependencies {
     implementation 'com.tfedorov.gradledependencies:sciencelibrary:0.1'
 
 
-// 2) Declaring rich versions
+
+// 1.2) Declaring rich versions
 //    implementation("com.tfedorov.gradledependencies:booktransitive") {
 //        version {
 //            strictly("0.1")
 //        }
 //    }
 
+// 1.3) Exclude unnecessary dependency
+//    implementation ('com.tfedorov.gradledependencies:softwarelibrary:0.1') {
+//        exclude group: 'com.tfedorov.gradledependencies', module: 'booktransitive'
+//    }
+
 }
 
-// when our project depends directly or indirectly on libraries with different versions
-// Gradle resolves this by selecting the highest version
-// therefore we see Book from com.tfedorov.gradledependencies:booktransitive:0.2
-
-
-// 4) resolution strategy
+// 1.4) resolution strategy
 //configurations.all {
 //    resolutionStrategy {
 //        force 'com.tfedorov.gradledependencies:booktransitive:0.1'
 //    }
 //}
 
+// 1.5) Use Locking dependency versions
+//dependencyLocking {
+//    lockAllConfigurations()
+//}
 
 application {
     mainClass = 'com.tfedorov.gradledependencies.client.ClientApp'
