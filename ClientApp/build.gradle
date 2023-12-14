@@ -16,12 +16,17 @@ repositories {
 // Gradle resolves this by selecting the highest version
 // therefore we see Book from com.tfedorov.gradledependencies:booktransitive:0.2
 
+// 3.3)
+//def libraryVersion = System.getenv('ENV') ?: '0.2'
+
 dependencies {
   // Use Scala 2.13 in our library project
   implementation 'org.scala-lang:scala-library:2.13.8'
   implementation 'com.tfedorov.gradledependencies:softwarelibrary:0.1'
   implementation 'com.tfedorov.gradledependencies:sciencelibrary:0.1'
 
+// 3.3)
+//  implementation "com.tfedorov.gradledependencies:booktransitive:${libraryVersion}!!"
 
 // 2.1) Declaring simple version declaration
 //    implementation 'com.tfedorov.gradledependencies:booktransitive:0.1!!'
@@ -71,6 +76,7 @@ dependencies {
 //    }
 //  }
 //}
+
 
 application {
   mainClass = 'com.tfedorov.gradledependencies.client.ClientApp'
